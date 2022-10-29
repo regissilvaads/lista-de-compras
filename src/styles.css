@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import url("node_modules/materialize-css/dist/css/materialize.css"); */
+/* @import url("node_modules/material-icons/iconfont/material-icons.css"); */
+@import url("../node_modules/materialize-css/dist/css/materialize.css");
+@import url("../node_modules/material-icons/iconfont/material-icons.css");
+
+.intro {
+  text-align: center;
+  padding-top: 13%;
+  min-height: 680px;
+  margin-bottom: 50px;
+  background-image: url("/src/assets/resources/images/pexels-ds-stories-9228124.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.intro h1 {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.intro h5 {
+  text-transform: uppercase;
+  background-color: #f5f5f5;
+  padding: 10px;
+  color: #333333;
+}
