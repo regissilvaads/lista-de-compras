@@ -6,17 +6,27 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { LandPageComponent } from './land-page/land-page.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { ListaComponent } from './lista/lista.component';
+import { FormsModule } from '@angular/forms';
+import { PainelComponent } from './painel/painel.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LandPageComponent
+    LandPageComponent,
+    ProdutoComponent,
+    ListaComponent,
+    PainelComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

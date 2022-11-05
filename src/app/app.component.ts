@@ -1,18 +1,27 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import * as M from 'materialize-css';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
-  @ViewChild('mobile') sideNav?: ElementRef;
-
+export class AppComponent implements OnInit {
   title = 'Lista de Compras';
+  coords: any;
+  dataAtual: Date;
 
-  ngAfterViewInit(): void {
-    // alert(M.Sidenav);
-    M.Sidenav.init(this.sideNav?.nativeElement);
+  constructor() {
+    this.dataAtual = new Date();
   }
+
+  ngOnInit(): void {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.coords = position.coords;
+    });
+    setInterval(() => {
+      this.dataAtual = new Date();
+    }, 1000);
+  }
+
+
 }
