@@ -1,0 +1,46 @@
+<app-modal [show]="modal.show" [content]="modal" (closeEvent)="onCloseModal()">
+</app-modal>
+<div class="container contact">
+  <h5>Cadastro de Produtos</h5>
+  <p class="bem-vindo" [hidden]="!this.academico">Bem-vindo, Acadêmico</p>
+  <hr />
+  <div class="row">
+    <div class="col s12">
+      <div id="div-message" class="card-panel white-text" [hidden]="!this.message" [class.red]="this.erroForm"
+        [class.blue]="!this.erroForm">
+        {{this.message}}
+      </div>
+    </div>
+    <form class="col s12" (submit)="onSubmit()">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Digite o nome do produto" id="produto" type="text" class="validate" name="produto"
+            [(ngModel)]="this.produto">
+          <label for="produto">Produto</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light blue" type="submit" name="action">Enviar
+        <i class="material-icons right">send</i>
+      </button>
+      <button style="margin-left: 10px;" class="btn waves-effect waves-light blue" type="button"
+        (click)="onResetClick()">
+        Apagar
+        <i class="material-icons right">delete</i>
+      </button>
+    </form>
+  </div>
+
+  <p>Produto: {{produto}}</p>
+
+  <h5>PRODUTO CADASTRADO</h5>
+  <app-painel [objeto]="this.produto" (evento)="this.onDonationEvent($event)">
+  </app-painel>
+
+  <!-- link home -->
+  <div class="row">
+    <div class="col s12 m6 offset-m3 center">
+      <a routerLink=""> VOLTAR AO MENU PRINCIPAL </a>
+    </div>
+  </div>
+  <!-- link home -->
+</div>
