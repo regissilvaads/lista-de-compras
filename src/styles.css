@@ -25,3 +25,9 @@
   padding: 10px;
   color: #333333;
 }
+
+h5 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
