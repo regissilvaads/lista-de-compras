@@ -10,37 +10,55 @@
         [class.blue]="!this.erroForm">
         {{this.message}}
       </div>
-    </div>
-    <form class="col s12" (submit)="onSubmit()">
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Digite o nome do produto" id="produto" type="text" class="validate" name="produto"
-            [(ngModel)]="this.produto">
-          <label for="produto">Produto</label>
+      <div class="col s12">
+        <div id="msg-produto" class="card-panel red white-text" style="display: none">
         </div>
       </div>
-      <button class="btn waves-effect waves-light blue" type="submit" name="action">Enviar
-        <i class="material-icons right">send</i>
-      </button>
-      <button style="margin-left: 10px;" class="btn waves-effect waves-light blue" type="button"
-        (click)="onResetClick()">
-        Apagar
-        <i class="material-icons right">delete</i>
-      </button>
-    </form>
-  </div>
-
-  <p>Produto: {{produto}}</p>
-
-  <h5>PRODUTO CADASTRADO</h5>
-  <app-painel [objeto]="this.produto" (evento)="this.onDonationEvent($event)">
-  </app-painel>
-
-  <!-- link home -->
-  <div class="row">
-    <div class="col s12 m6 offset-m3 center">
-      <a routerLink=""> VOLTAR AO MENU PRINCIPAL </a>
+      <form class="col s12" #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Digite o nome do produto" id="produto" type="text" class="validate" name="produto"
+              [(ngModel)]="this.produto.nome" pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ù]*)+"
+              #name="ngModel" required>
+            <label for="produto">Produto *</label>
+            <div class="red-text" [hidden]="name.valid || name.untouched">
+              Por favor, informe o nome do produto completo.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <select #situacao>
+              <!-- <option value="" disabled selected>Selecione um valor</option> -->
+              <option value="Ativo">Ativo</option>
+              <option value="Inativo">Inativo</option>
+            </select>
+            <label>Situação</label>
+          </div>
+        </div>
+        <button class="btn waves-effect waves-light blue" type="submit" name="action" [disabled]="!form.valid">Enviar
+          <i class="material-icons right">send</i>
+        </button>
+        <!-- <button style="margin-left: 10px;" class="btn waves-effect waves-light blue" type="button"
+          (click)="onResetClick()">
+          Apagar
+          <i class="material-icons right">delete</i>
+        </button> -->
+      </form>
     </div>
+
+
+    <!-- <p>Produto: {{produto}}</p> -->
+
+    <h5>PRODUTOS CADASTRADOS</h5>
+
+    <!-- <app-painel [objeto]="this.produto" (evento)="this.onDonationEvent($event)">
+    </app-painel> -->
+    <!-- link home -->
+    <div class="row">
+      <div class="col s12 m6 offset-m3 center">
+        <a routerLink=""> VOLTAR AO MENU PRINCIPAL </a>
+      </div>
+    </div>
+    <!-- link home -->
   </div>
-  <!-- link home -->
-</div>
