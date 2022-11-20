@@ -1,5 +1,7 @@
 export class Produto {
-  id!: string;
+  static readonly WITHDRAW_TYPE = 'withdraw';
+  static readonly PRODUTO_TYPE = 'produto';
+  public id!: string;
   nome!: string;
   situacao!: string;
 

@@ -19,6 +19,31 @@
       "id": 4,
       "nome": "Refrigerante",
       "situacao": "ativo"
+    },
+    {
+      "id": 5,
+      "nome": "Verduras",
+      "situacao": "desativado"
+    },
+    {
+      "id": 6,
+      "nome": "Maracuja",
+      "situacao": "desativado"
+    },
+    {
+      "nome": "Batata",
+      "situacao": "desativado",
+      "id": 7
+    },
+    {
+      "nome": "Abacaxi Doce",
+      "situacao": "Ativo",
+      "id": 8
+    },
+    {
+      "nome": "Mamão Doce",
+      "situacao": "Inativo",
+      "id": 9
     }
   ]
 }

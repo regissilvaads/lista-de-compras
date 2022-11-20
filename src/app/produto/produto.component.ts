@@ -32,8 +32,7 @@ export class ProdutoComponent implements OnInit, AfterViewInit {
     text: '',
   };
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-
+  constructor(private route: ActivatedRoute, private router: Router, private produtoService: ProdutoService) {
   }
   ngAfterViewInit(): void {
     // var elems = document.querySelectorAll('select');
@@ -51,12 +50,24 @@ export class ProdutoComponent implements OnInit, AfterViewInit {
     });
   }
 
-  onSubmit() {
-    M.FormSelect.init(this.formSelect.nativeElement);
-    var selecao = M.FormSelect.getInstance(this.formSelect.nativeElement);
-    this.produto.situacao = selecao.getSelectedValues()[0];
-    localStorage.setItem('produtos', JSON.stringify(this.produto));
-    return;
+  onSubmit(): Promise<Produto> {
+    const p = new Promise<Produto>((resolve, reject) => {
+      M.FormSelect.init(this.formSelect.nativeElement);
+      var selecao = M.FormSelect.getInstance(this.formSelect.nativeElement);
+      this.produto.situacao = selecao.getSelectedValues()[0];
+      this.produtoService.save(this.produto)
+        .then(() => {
+          this.message = `Produto ${this.produto.nome} salvo com sucesso`;
+        })
+        .catch((err) => {
+          this.erroForm = true;
+          this.message = err;
+        })
+        .finally(() => {
+
+        });
+    });
+    return p;
   }
 
   // onResetClick() {

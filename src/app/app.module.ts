@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 import { LandPageComponent } from './land-page/land-page.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { ListaComponent } from './lista/lista.component';
@@ -26,6 +27,7 @@ import { ModalComponent } from './modal/modal.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
