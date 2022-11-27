@@ -1,7 +1,9 @@
 # lista-de-compras
 O objetivo deste aplicação é auxiliar o usuário na gestão de uma lista de compras. A aplicação deve permitir que o usuário realize operações de inclusão, alteração, exclusão de produtos.
-# Endereço de Deploy - GitHub Pages
+# Endereço Repositório - GitHub
 https://github.com/regissilvaads/lista-de-compras
+# Endereço de Deploy - GitHub Pages
+https://regissilvaads.github.io/lista-de-compras/
 # Checklist
 - Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 - Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro).
