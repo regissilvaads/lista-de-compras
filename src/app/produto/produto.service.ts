@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { Produto } from '../model/produto';
 import { WebStorageUtil } from '../util/web-storage-util';
 import { Constants } from '../util/constants';
-import { ProdutoPromiseService } from '../../../services/produto-promise.service';
+import { ProdutoPromiseService } from "src/app/services/produto-promise.service";
 
 
 @Injectable({
