@@ -79,6 +79,26 @@
       "nome": "Iogurte Vermelho",
       "situacao": "Inativo",
       "id": 16
+    },
+    {
+      "nome": "Maracuja Acido",
+      "situacao": "Ativo",
+      "id": 17
+    },
+    {
+      "nome": "Melão Doce",
+      "situacao": "Ativo",
+      "id": 18
+    },
+    {
+      "nome": "Melancia Doce",
+      "situacao": "Ativo",
+      "id": 19
+    },
+    {
+      "nome": "Pera Doce",
+      "situacao": "Ativo",
+      "id": 20
     }
   ]
 }
