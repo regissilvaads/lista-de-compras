@@ -1,12 +1,13 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { Produto } from '../lista-de-compras/src/app/model/produto';
 
 
 @Injectable({
   providedIn: 'root',
 })
-export class TransactionPromiseService {
+export class ProdutoPromiseService {
   URL = "http://localhost:3000/produto";
 
   httpOptions = {
@@ -26,6 +27,10 @@ export class TransactionPromiseService {
         JSON.stringify(produto),
         this.httpOptions)
       .toPromise();
+  }
+
+  get(): Observable<Produto[]> {
+    return this.httpClient.get<Produto[]>(`${this.URL}`);
   }
 }
 

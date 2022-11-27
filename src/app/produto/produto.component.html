@@ -52,6 +52,33 @@
 
     <h5>PRODUTOS CADASTRADOS</h5>
 
+    <table class="striped responsive-table centered" *ngIf="produtos && produtos!.length > 0">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Situação</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let p of this.produtos">
+          <td>{{ p.nome | uppercase }}</td>
+          <td>{{ p.situacao | uppercase }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!produtos || produtos!.length == 0">
+      <div class="row">
+        <div class="center-align">
+          <i class="col s12 material-icons large">mood_bad</i>
+          <span class="col s12 flow-text">
+            Ainda não temos produtos cadastrados!
+          </span>
+        </div>
+      </div>
+    </div>
+
     <!-- <app-painel [objeto]="this.produto" (evento)="this.onDonationEvent($event)">
     </app-painel> -->
     <!-- link home -->

@@ -1,22 +1,25 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { Produto } from '../model/produto';
 import { WebStorageUtil } from '../util/web-storage-util';
 import { Constants } from '../util/constants';
-import { TransactionPromiseService } from '../../../services/transaction-promise.service';
+import { ProdutoPromiseService } from '../../../services/produto-promise.service';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProdutoService {
-  constructor(private transactionPromiseService: TransactionPromiseService) { }
+  produtos!: Produto[];
+  constructor(private produtoPromiseService: ProdutoPromiseService) { }
 
   save(produto: Produto): Promise<Produto> {
     const p = new Promise<Produto>((resolve, reject) => {
       localStorage.setItem('produto', JSON.stringify(produto));
-      this.transactionPromiseService.save(produto);
+      this.produtoPromiseService.save(produto);
       resolve(produto);
     });
     return p;
   }
+
 }

@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
 import { ProdutoService } from './produto.service';
 import { WebStorageUtil } from '../util/web-storage-util';
 import { Constants } from '../util/constants';
+import { ProdutoPromiseService } from '../../../services/produto-promise.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { Constants } from '../util/constants';
 })
 export class ProdutoComponent implements OnInit, AfterViewInit {
   produto!: Produto;
+  produtos?: Produto[];
   // produto: string = '';
   erroForm: boolean = false;
   message: string = '';
@@ -32,7 +34,7 @@ export class ProdutoComponent implements OnInit, AfterViewInit {
     text: '',
   };
 
-  constructor(private route: ActivatedRoute, private router: Router, private produtoService: ProdutoService) {
+  constructor(private route: ActivatedRoute, private router: Router, private produtoService: ProdutoService, private produtoPromiseService: ProdutoPromiseService) {
   }
   ngAfterViewInit(): void {
     // var elems = document.querySelectorAll('select');
@@ -43,11 +45,31 @@ export class ProdutoComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.message = '';
     this.produto = new Produto('', '');
+    this.doProduto();
+
     this.route.queryParams.subscribe((params) => {
       if (params['tipo'] == 'academico') {
         this.academico = params['tipo'];
       }
     });
+  }
+
+  doProduto() {
+    this.produtoPromiseService.get().subscribe(
+      (data: Produto[]) => {
+        if (!data || data.length == 0) {
+          alert('Nenhum resultado foi encontrado!');
+          return;
+        }
+        this.produtos = data;
+        console.log(this.produtos);
+      },
+      (error) => {
+        console.log(error);
+        alert(error.message);
+
+      }
+    );
   }
 
   onSubmit(): Promise<Produto> {
@@ -64,7 +86,7 @@ export class ProdutoComponent implements OnInit, AfterViewInit {
           this.message = err;
         })
         .finally(() => {
-
+          this.doProduto();
         });
     });
     return p;

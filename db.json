@@ -44,6 +44,26 @@
       "nome": "Mamão Doce",
       "situacao": "Inativo",
       "id": 9
+    },
+    {
+      "nome": "Açucar Mascavo",
+      "situacao": "Inativo",
+      "id": 10
+    },
+    {
+      "nome": "Batata Frita",
+      "situacao": "Ativo",
+      "id": 11
+    },
+    {
+      "nome": "Banana Frita",
+      "situacao": "Ativo",
+      "id": 12
+    },
+    {
+      "nome": "Agua Mineral",
+      "situacao": "Ativo",
+      "id": 13
     }
   ]
 }
